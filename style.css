@@ -1,42 +1,146 @@
-/* color pallete{
-    #ffffff
-    #292e32
-    #acff59
-    #595ff7
-    #272a2f
-    #fc3f4d
-    #f7c159
-    #8fc9dc
-} */
-
 *{
-    margin: 0%;
-    padding: 0%;
-    /* background-color: #292e32; */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-#parent{
-width: 100%;
-background-color: #292e32;
-}
-.navBar{
-width: 100%;
-height: 100px;
-background: #fdfff0 ;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-.mainContent{
 
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #000;
+  --nav: #a78bfa;
+  --box: #fdfff0;
+  --border: #ddd;
 }
-.RealTimeChart{
-    width: 80%;
-    height: auto;
-    background-color: fdfff0;
-    color: #fdfff0;
+
+.dark {
+  --bg: #1e2226;
+  --card: #2c3136;
+  --text: #ffffff;
+  --nav: #7c3aed;
+  --box: #0b0f1a;
+  --border: #444;
+}
+
+body{
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: "Google Sans", sans-serif;
+    transition: 0.3s ease;
+}
+
+#parent{
+    width: 100%;
+}
+
+.navBar{
+    width: 100%;
+    background: var(--nav);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    padding: 30px;
-    font-size: 30px;
+    padding: 15px 25px;
+}
+
+.navBar h1{
+    font-size: 24px;
+}
+
+.mainBody{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+.table1{
+    width: 80%;
+    max-width: 800px;
+    background: var(--box);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.headingTable1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bodyTable1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.box1, .box3{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 40%;
+}
+
+.box2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    outline: none;
+    background: var(--card);
+    color: var(--text);
+}
+
+.calculate{
+    background: var(--card);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.table2{
+    width: 80%;
+    max-width: 800px;
+    background: var(--box);
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 150px;
+}
+
+.currency-selector {
+    position: relative;
+    width: 100%;
+}
+
+.dropdown {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 100%;
+    background: var(--card);
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 100;
+}
+
+.dropdown div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown div:hover {
+    background: rgba(0,0,0,0.05);
+}
+
+.dark .dropdown div:hover {
+    background: rgba(255,255,255,0.1);
 }

@@ -1,36 +1,30 @@
 # 🧭 CurrencyCompass
 
-**CurrencyCompass** is a modern currency converter that helps user *navigate exchange rates from a new perspective*.
-It combines real-time data with a clean, intuitive interface to make currency conversion simple and meaningful.
+**CurrencyCompass** is a modern currency converter that helps users *navigate exchange rates from a new perspective*.
+It fetches real-time currency data and provides a clean, interactive interface for quick and intuitive conversions.
 
 ---
 
 ## 🚀 Features
 
-* 💱 Real-time currency conversion
-* 🔍 Search currencies instantly
-* 🎛 Filter currencies based on user input
-* 🔃 Sort currencies (A → Z / Z → A)
-* 🔁 Swap currencies with one click
+* 💱 Real-time currency conversion using live API data
+* 🔍 Searchable currency dropdown (type to filter currencies)
+* 🎯 Dynamic dropdown generated from API data (no hardcoding)
+* ⚡ Instant conversion based on selected currencies and input amount
+* 🖱 Manual conversion trigger using arrow button
+* 🌗 Light / Dark mode toggle
 
 ---
 
 ## 🔌 API Used
 
-This project uses the **Frankfurter API**:
-**Frankfurter API website URL**
-https://frankfurter.dev/v1/
+This project uses the **Open Exchange Rate API (Open ER API)**:
 
 **Base URL:**
-https://api.frankfurter.dev/v1/
+https://open.er-api.com/v6/latest/USD
 
-**Endpoints Used:**
-
-* Latest rates → `/latest?from=INR`
-* Rates on a specific date → `/YYYY-MM-DD?from=INR&to=USD`
-
-The API provides reliable exchange rate data based on the European Central Bank.
-
+The app fetches exchange rates once (with USD as base) and performs all conversions locally for better performance.
+{Was Previously using Frankfurter API, but it was producing some errors while building later, so switched}
 ---
 
 ## 🛠 Tech Stack
@@ -44,10 +38,27 @@ The API provides reliable exchange rate data based on the European Central Bank.
 
 ## 🧠 What This Project Demonstrates
 
-* Working with public APIs using `fetch`
-* Using array higher-order functions like `.map()`, `.filter()`, and `.sort()`
-* Transforming real-world data for UI display
-* Building interactive and user-friendly interfaces
+* Fetching and storing API data
+* Using `Object.keys()` to dynamically generate UI elements
+* Using `.filter()` for real-time search functionality
+* Using `.map()` to render dropdown UI dynamically
+* DOM manipulation and event handling
+* Building interactive UI without external libraries
+
+---
+
+## ⚙️ How It Works
+
+1. Fetch exchange rates from API
+2. Store data inside a global `rates` object
+3. Generate currency list dynamically from API
+4. Filter currencies as user types
+5. Select currency from dropdown
+6. Convert using formula:
+
+```
+amount (from currency) → USD → target currency
+```
 
 ---
 
@@ -62,6 +73,6 @@ The API provides reliable exchange rate data based on the European Central Bank.
 
 The idea behind *CurrencyCompass* is simple:
 
-> Just like a compass helps you find direction, this Web-app helps you understand currency values from different perspectives.
+> Just like a compass helps you find direction, this web app helps you understand currency values from different perspectives.
 
 ---
